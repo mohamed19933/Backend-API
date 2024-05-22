@@ -4,6 +4,7 @@ const delaysModel = require("../models/delays.model");
 const reasonsModel = require("../models/reason.modal");
 const standsModel = require("../models/stands.model");
 const bundlesModel = require("../models/bundles.model");
+const summaryModel = require("../models/summary.model");
 
 require("dotenv").config();
 
@@ -19,10 +20,9 @@ const sequelize = new Sequelize(
       options: { encrypt: false },
     },
     // Disable logging or set to a custom function
-    logging: false // Or logging: () => {}
+    logging: false, // Or logging: () => {}
   }
 );
-
 
 const db = {};
 db.dailyCosumption = dailyConsumModel(sequelize);
@@ -30,6 +30,7 @@ db.delaysData = delaysModel(sequelize);
 db.reasonsData = reasonsModel(sequelize);
 db.bundles = bundlesModel(sequelize);
 db.stands = standsModel(sequelize);
+db.summaryData = summaryModel(sequelize);
 
 db.sequelize = sequelize;
 
@@ -37,4 +38,3 @@ db.sequelize = sequelize;
 // sequelize.sync({ alter: true }); // synchronization here
 
 module.exports = db;
-

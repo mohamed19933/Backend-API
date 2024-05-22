@@ -7,6 +7,7 @@ const dailyConsRoute = require("./routes/dailyConsumptionRoute");
 const delayRoute = require("./routes/delayRoute");
 const bundlesRoute=require("./routes/bundlesRoute");
 const standsRoute=require("./routes/standsRoute");
+const summaryRoute=require("./routes/summaryRoute");
 
 const ApiError = require("./utils/apiError");
 const globalError = require("./middleWares/errorMiddleware");
@@ -51,6 +52,7 @@ app.use("/api/dailyCons", dailyConsRoute);
 app.use("/api/delay", delayRoute);
 app.use("/api/stands", standsRoute);
 app.use("/api/bundles", bundlesRoute);
+app.use("/api/summary", summaryRoute);
 
 
 
